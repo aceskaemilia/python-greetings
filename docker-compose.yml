@@ -1,0 +1,19 @@
+services:
+  greetings-app-dev:
+    build: .
+    image: aceskaemilija/python-greetings:latest
+    container_name: python-greetings-dev
+    ports:
+      - 7001:3000
+  greetings-app-stg:
+    build: .
+    image: aceskaemilija/python-greetings:latest
+    container_name: python-greetings-stg
+    ports:
+      - 7002:3000
+  greetings-app-prod:
+    build: .
+    image: aceskaemilija/python-greetings:latest
+    container_name: python-greetings-prod
+    ports:
+      - 7003:3000
