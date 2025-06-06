@@ -61,6 +61,5 @@ def deploy(String environment){
 def test(String environment){
     echo "API test executuon against node application on ${environment} environment.."
     sh "docker pull aceskaemilija/api-tests"
-    def directory = pwd()
-    sh "docker run --network=host --rm '${aceskaemilija}':/api-tests:latest run greetings greetings_${environment}"
+    sh "docker run --network=host --rm '${aceskaemilija}'/api-tests:latest run greetings greetings_${environment}"
 }
