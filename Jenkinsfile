@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('build-docker-image') {
             steps {
-                builDockerImage()
+                buildDockerImage()
             }
         }
         stage('deploy-to-dev') {
@@ -42,8 +42,8 @@ pipeline {
     }
 }
 
-def builDockerImage(){
-    echo "Building of THE application is starting.."
+def buildDockerImage(){
+    echo "Building of the application is starting.."
     sh "docker build -t aceskaemilija/python-greetings-app:latest ."
 
     echo "Pushing image to docker registry.."
@@ -59,7 +59,7 @@ def deploy(String environment){
 }
 
 def test(String environment){
-    echo "API test executuon against node application on ${environment} environment.."
+    echo "API test executuon against the application on ${environment} environment.."
     sh "docker pull aceskaemilija/api-tests:latest"
     sh "docker run --network=host --rm aceskaemilija/api-tests:latest run greetings greetings_${environment.toLowerCase()}"
 }
