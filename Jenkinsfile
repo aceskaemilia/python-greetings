@@ -52,7 +52,7 @@ def buildDockerImage(){
 
 def deploy(String environment){
     echo "Deploying Python microservice to ${environment} environment.."
-    sh "docker pull aceskaemilija/python-greetings-app"
+    sh "docker pull aceskaemilija/python-greetings-app:latest"
     sh "docker compose stop greetings-app-${environment.toLowerCase()}"
     sh "docker compose rm greetings-app-${environment.toLowerCase()}"
     sh "docker compose up -d greetings-app-${environment.toLowerCase()}"
